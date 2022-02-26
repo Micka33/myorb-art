@@ -1,7 +1,21 @@
 # myorb-art
-Displays The Orbs By BT (https://opensea.io/collection/theorbsbybt)
+
+The goal of this project is to make it easy to display one or several orbs in fullscreen.
+
+## What is an Orb?
+
+On 2022 February 22nd, in partnership with [Gala Music](https://twitter.com/gogalamusic), the artist [BT](https://twitter.com/BT) has revealed 3333 ORBS to the world.  
+Learn more on the [official website (https://www.theorbs.io/)](https://www.theorbs.io/)
+
+## Requirements
+ - As lightweight as possible
+ - No tracking whatsoever
+ - Opensource
 
 ## TODO
+ - [x] Implements an input that can accept several ORBS IDs (currently up to 10)
+ - [x] Display several orbs so there is never an empty slot 
+ - [ ] Display friendly errors (wrong id, etc)
  - [ ] Store orbs IDs in URL param
  - [ ] Close Orbs when pressing escape
  - [ ] Dynamically resize the orbs on browsers resize
