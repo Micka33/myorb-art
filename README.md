@@ -2,8 +2,9 @@
 Displays The Orbs By BT (https://opensea.io/collection/theorbsbybt)
 
 ## TODO
- - Store orbs IDs in URL param
- - Close Orbs when pressing escape
+ - [ ] Store orbs IDs in URL param
+ - [ ] Close Orbs when pressing escape
+ - [ ] Dynamically resize the orbs on browsers resize
 
 ---
 
