@@ -15,6 +15,7 @@ Learn more on the [official website (https://www.theorbs.io/)](https://www.theor
 ## TODO
  - [x] Implements an input that can accept several ORBS IDs (currently up to 10)
  - [x] Display several orbs so there is never an empty slot 
+ - [ ] Propose several layouts
  - [ ] Display friendly errors (wrong id, etc)
  - [ ] Store orbs IDs in URL (easier to save a custom selection)
  - [ ] Close orbs when pressing escape key
@@ -27,4 +28,4 @@ Learn more on the [official website (https://www.theorbs.io/)](https://www.theor
 ---
 ## below is what 7 orbs look like
 
-<img width="601" alt="Screen Shot 2022-02-26 at 22 24 04" src="https://user-images.githubusercontent.com/3918958/155859596-9275a1c3-0e65-47c3-b7ec-dd52f4fccdee.png">
+<img width="1502" alt="Screen Shot 2022-02-26 at 23 33 11" src="https://user-images.githubusercontent.com/3918958/155861168-944e8da7-ddaf-4da4-8c7e-1d68f93e216e.png">
