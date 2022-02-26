@@ -1,6 +1,6 @@
 # myorb-art
 
-The goal of this project is to make it easy to display one or several orbs in fullscreen.
+This project makes it easy to display one or several orbs in fullscreen.
 
 ## What is an Orb?
 
