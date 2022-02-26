@@ -16,8 +16,8 @@ Learn more on the [official website (https://www.theorbs.io/)](https://www.theor
  - [x] Implements an input that can accept several ORBS IDs (currently up to 10)
  - [x] Display several orbs so there is never an empty slot 
  - [ ] Display friendly errors (wrong id, etc)
- - [ ] Store orbs IDs in URL param
- - [ ] Close Orbs when pressing escape
+ - [ ] Store orbs IDs in URL (easier to save a custom selection)
+ - [ ] Close orbs when pressing escape key
  - [ ] Dynamically resize the orbs on browsers resize
 
 ---
