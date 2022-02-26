@@ -306,7 +306,6 @@
 
       function openOrbs(urls) {
         let panels = createPanels(urls.length);
-        console.log(panels);
         panels.forEach((panel, index) => {
           let url = urls[index];
           panel.innerHTML = '<iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" frameborder="0" height="100%" sandbox="allow-scripts" src="'+url+'" width="100%"></iframe>'
@@ -316,7 +315,6 @@
       }
 
       function createPanels(number) {
-        console.log('number', number)
         let flex_overlay = fillInOverlay();
         let panels = [];
         let nb_columns = {1:1, 2:2, 3:3, 4:2, 5:2, 6:3, 7:3, 8:4, 9:3, 10:4}[number];
@@ -326,14 +324,10 @@
         let middle_row_needed = middle_row_column_count > 0;
         let orb_panel_height = window.innerHeight / nb_rows;
         while (nb_rows--) {
-          console.log('nb_rows', nb_rows);
-          console.log(middle_row_needed, nb_rows, middle_row_number, '==', middle_row_needed && nb_rows == middle_row_number)
           let times = (middle_row_needed && nb_rows == middle_row_number) ? middle_row_column_count : nb_columns;
-          console.log(nb_columns, middle_row_column_count, 'times=', times)
           let row = createPanel();
           flex_overlay.appendChild(row);
           while (times--) {
-            console.log('times', times);
             let column = createPanel(orb_panel_height);
             row.appendChild(column);
             panels.push(column);
@@ -352,7 +346,6 @@
         let el = document.createElement('div');
         el.className = 'flex_orb';
         if (height) el.style = 'height:' + height + 'px';
-        console.log('height:', height);
         return el;
       }
 
