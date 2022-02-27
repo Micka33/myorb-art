@@ -310,7 +310,7 @@
           let panels = createPanels(urls.length);
           panels.forEach((panel, index) => {
             let url = urls[index];
-            panel.innerHTML = '<iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" frameborder="0" height="100%" sandbox="allow-scripts" src="'+url+'" width="100%"></iframe>'
+            panel.innerHTML = '<iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; display-capture" frameborder="0" height="100%" sandbox="allow-scripts" src="'+url+'" width="100%"></iframe>'
           });
           let overlay = document.getElementById('overlay');
           overlay.style.display = 'block';
