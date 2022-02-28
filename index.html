@@ -6,25 +6,65 @@
     <div id="page">
       <div id="header">
         <div id="banner"></div>
-        <div id="info" class="flex">
+        <div id="info" class="flex flex-column">
           <div id="image">
             <div id="image_border">
-              <img src="https://lh3.googleusercontent.com/CpUPdCh-yk-F8w68DjV5Dt2hLtLFq7gFtZNGITrBlMwdul2ZR_qxGcz18gt-502WgDADvOnHYoDf9yFdR-FfuVDLpu9N9iRMd2es=s120" alt="Collection Image">
+              <img src="" alt="Collection Image">
             </div>
           </div>
           <div id="title">
-            <h1>The Orbs by BT</h1>
+            <h1></h1>
           </div>
           <div id="opensea">
-            <a href="https://opensea.io/collection/theorbsbybt">opensea.io/collection/theorbsbybt</a>
+            <a href="https://opensea.io/">opensea.io/</a>
           </div>
           <div id="description">
-            <span>3,333 unique, evolving audio-visual NFTs by BT.</span>
+            <span>description will appear here when it is loaded.</span>
           </div>
         </div>
       </div>
+      <div id="promotion">
+        <div class="flex flex-column">
+          <div class="container margin-bottom"><hr style="width:100%;"></div>
+        </div>
+        <div class="flex flex-column">
+          <div id="promotion_title"><span>Check out one of these orbs!</span></div>
+          <div id="promotion_items" class="flex flex-row">
+            <div class="item flex flex-column">
+              <div class="item_image">
+                <img src="" alt="Item Image">
+              </div>
+              <div class="item_info">
+                <div class="collection_name"><span></span></div>
+                <div class="item_id"><span><a href="" target="_blank"></a></span></div>
+              </div>
+            </div>
+            <div class="item flex flex-column">
+              <div class="item_image">
+                <img src="" alt="Item Image">
+              </div>
+              <div class="item_info">
+                <div class="collection_name"><span></span></div>
+                <div class="item_id"><span><a href="" target="_blank"></a></span></div>
+              </div>
+            </div>
+            <div class="item flex flex-column">
+              <div class="item_image">
+                <img src="" alt="Item Image">
+              </div>
+              <div class="item_info">
+                <div class="collection_name"><span></span></div>
+                <div class="item_id"><span><a href="" target="_blank"></a></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-column">
+          <div class="container margin-top"><hr style="width:100%;"></div>
+        </div>
+      </div>
       <div id="content">
-        <div class="flex">
+        <div class="flex flex-column">
           <div class="container">
             <form id="orbs_id_form">
               <div class="inputContainer">
@@ -49,12 +89,18 @@
       .flex {
         align-items: center;
         display: flex;
-        flex-direction: column;
-        width: 100%;
+        /* width: 100%; */
         -webkit-box-align: center;
+        justify-content: center;
       }
+      .flex-column {flex-direction: column;}
+      .flex-row {
+        flex-direction: row;
+      }
+      .margin-bottom {margin-bottom: 20px;}
+      .margin-top {margin-top: 20px;}
       #page { display: block }
-      #header { display: block; }
+      #header { display: block; margin-bottom: 20px;}
       #banner {
         border-bottom-color: rgb(21, 27, 34);
         border-bottom-style: solid;
@@ -69,9 +115,7 @@
         background-size: cover;
       }
 
-      #info {
-        margin-bottom: 20px;
-      }
+      #info {}
       #image {
         color: rgb(229, 232, 235);
         display: block;
@@ -118,8 +162,21 @@
         color: rgb(138, 147, 155);
         max-width: 760px;
         font-size: 14px;
-        padding: 20px;
+        padding-top: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
         text-align: justify;
+      }
+
+      #promotion {
+        margin-bottom: 20px;
+      }
+      #promotion hr {
+        border: solid 1px rgb(53, 56, 64);
+      }
+      #promotion_title {
+        font-size: 24px;
+        margin-bottom: 20px;
       }
 
       #content {
@@ -132,6 +189,33 @@
       .container {
         width: 360px;
       }
+
+
+      .item {
+        cursor: text;
+        background-color: rgb(53, 56, 64);
+        border-radius: 10px;
+        border: 1px solid rgb(21, 27, 34);
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+      .item_image, .item_image img {
+        overflow: hidden;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        height: 150px;
+        width: 150px;
+        cursor: pointer;
+      }
+      .item_info {
+        font-size: 12px;
+        padding: 5px;
+      }
+      .collection_name { color: rgb(138, 147, 155); }
+      .item_id {
+        margin-top: 5px;
+      }
+
 
       .inputContainer {
         font-family: Poppins, sans-serif;
@@ -307,6 +391,54 @@
         })
         .catch(console.error);
 
+        /*
+        ** Promoted ORBS
+        **
+        */
+        function getRandomOrbNumber() {
+          const min = 1;
+          const max = 3333;
+          return Math.floor(Math.random() * (max - min)) + min;
+        }
+        function getItemData(id) {
+          return getAsset(asset_contract_address, id)
+            .then(response => ({
+              collection_name: response.collection.name,
+              image: response.image_preview_url,
+              id: response.token_id,
+              link: response.permalink,
+            }));
+        }
+        function setItem(el, data) {
+          el.querySelector('.item_image img').src = data.image;
+          el.querySelector('.item_info .collection_name span').innerText = data.collection_name;
+          el.querySelector('.item_info .item_id span a').innerText = data.id;
+          el.querySelector('.item_info .item_id span a').href = data.link;
+        }
+        function onItemClick(event) {
+          const target = event.target.parentElement.parentElement;
+          const id = target.querySelector('.item_info .item_id span a').innerText
+          getAsset(asset_contract_address, id)
+            .then(response => response?.animation_original_url)
+            .then(url => openOrbs([url]))
+            .catch(console.error);
+        }
+        //  [...document.querySelectorAll('#promotion_items .item')].forEach(el => getItemData(getRandomOrbNumber()).then(data => setItem(el, data)));
+        const items = [...document.querySelectorAll('#promotion_items .item')];
+        const first_item = items[0];
+        const second_item = items[1];
+        const third_item = items[2];
+        setTimeout(() => {
+          getItemData(getRandomOrbNumber()).then(data => setItem(first_item, data));
+        }, 300);
+        setTimeout(() => {
+          getItemData(getRandomOrbNumber()).then(data => setItem(second_item, data));
+        }, 600);
+        setTimeout(() => {
+          getItemData(getRandomOrbNumber()).then(data => setItem(third_item, data));
+        }, 900);
+        items.forEach(item => item.addEventListener('click', onItemClick));
+
         document.getElementById("orbs_id_form").addEventListener("submit", onSubmit);
         function onSubmit(event) {
           event.preventDefault();
@@ -319,7 +451,6 @@
           )
           Promise.all(promises).then(openOrbs).catch(console.error);
         }
-
 
         function openOrbs(urls) {
           let panels = createPanels(urls.length);
