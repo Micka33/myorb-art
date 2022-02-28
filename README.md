@@ -18,8 +18,8 @@ Learn more on the [official website (https://www.theorbs.io/)](https://www.theor
  - [ ] Propose several layouts
  - [ ] Display friendly errors (wrong id, etc)
  - [ ] Store orbs IDs in URL (easier to save a custom selection)
- - [ ] Close orbs when pressing escape key
- - [ ] Dynamically resize the orbs on browsers resize
+ - [ ] Close orbs when pressing escape key (2 solutions: [a: autoplay orbs+super overlay], [b: setInterval to refocus on input field after submit])
+ - [x] Dynamically resize the orbs on browsers resize
 
 ---
 

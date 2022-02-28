@@ -31,7 +31,7 @@
                 <div class="inputSearchPicture">
                   <span class="icon search"></span>
                 </div>
-                <input aria-invalid="false" placeholder="ORB NUMBER" style="cursor: text;">
+                <input aria-invalid="false" placeholder="ORBS NUMBERS (2048, 1, 912, 3123) up to 10" style="cursor: text;">
               </div>
             </form>
           </div>
@@ -130,7 +130,7 @@
       }
 
       .container {
-        width: 300px;
+        width: 360px;
       }
 
       .inputContainer {
@@ -217,7 +217,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+        background-color: black; /* Black background without opacity */
         z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
         cursor: pointer; /* Add a pointer on hover */
       }
@@ -238,9 +238,13 @@
 
     </style>
     <script>
+      const overlay = document.getElementById('overlay');
       const asset_contract_address = '0x52e66ca968010d064938a8099a172cbaaf08c125';
       const collection_slug = 'theorbsbybt';
 
+      function removeAllChildrenFromNode(node) {
+        while (node.firstChild) { node.firstChild.remove() };
+      }
       function getCollection(slug) {
         const options = {method: 'GET'};
         const url = 'https://api.opensea.io/api/v1/collection/' + slug;
@@ -271,7 +275,7 @@
       function update_description(text) {
         const url_matcher = /https?:\/\/((www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*))/ig;
         const el = document.querySelector('#description span');
-        while (el.firstChild) { el.firstChild.remove() };
+        removeAllChildrenFromNode(el)
         const strings = text.split("\n");
         strings.forEach(string => {
           let p = document.createElement('p');
@@ -279,6 +283,17 @@
           el.appendChild(p);
         });
       }
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            // if esc key was not pressed in combination with ctrl or alt or shift
+            const isNotCombinedKey = !(event.ctrlKey || event.altKey || event.shiftKey);
+            if (isNotCombinedKey) {
+              removeAllChildrenFromNode(overlay);
+              overlay.style.display = 'none';
+            }
+        }
+    }); // TODO: make orbs autoplay and add an overlay_over_overlay to make sure we don't miss the esc key (they currenly get absorbed by the iframes)
 
       getCollection(collection_slug)
         .then(response => {
@@ -312,7 +327,6 @@
             let url = urls[index];
             panel.innerHTML = '<iframe allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; display-capture" frameborder="0" height="100%" sandbox="allow-scripts" src="'+url+'" width="100%"></iframe>'
           });
-          let overlay = document.getElementById('overlay');
           overlay.style.display = 'block';
         }
 
@@ -324,13 +338,13 @@
           let middle_row_number = Math.ceil(nb_rows / 2) - 1;
           let middle_row_column_count = number % nb_columns;
           let middle_row_needed = middle_row_column_count > 0;
-          let orb_panel_height = window.innerHeight / nb_rows;
+          let orb_panel_height = 100 / nb_rows;
           while (nb_rows--) {
             let times = (middle_row_needed && nb_rows == middle_row_number) ? middle_row_column_count : nb_columns;
-            let row = createPanel();
+            let row = createPanel(orb_panel_height);
             flex_overlay.appendChild(row);
             while (times--) {
-              let column = createPanel(orb_panel_height);
+              let column = createPanel(100);
               row.appendChild(column);
               panels.push(column);
             }
@@ -338,16 +352,15 @@
           return panels;
         }
         function fillInOverlay() {
-          let o = document.getElementById('overlay');
           let el = document.createElement('div');
           el.id = 'flex_overlay_container';
-          o.appendChild(el);
+          overlay.appendChild(el);
           return el;
         }
         function createPanel(height = null) {
           let el = document.createElement('div');
           el.className = 'flex_orb';
-          if (height) el.style = 'height:' + height + 'px';
+          if (height) el.style = 'height:' + height + '%';
           return el;
         }
 
