@@ -23,7 +23,7 @@ Learn more on the [official website (https://www.theorbs.io/)](https://www.theor
 
 ---
 
-<img width="1153" alt="Screen Shot 2022-02-26 at 21 07 00" src="https://user-images.githubusercontent.com/3918958/155857716-6470d472-230f-41ea-a83c-abf4c861e956.png">
+<img width="771" alt="Screen Shot 2022-02-28 at 18 24 14" src="https://user-images.githubusercontent.com/3918958/156029412-49bf08a7-c3cf-4981-b313-f6d90d9626de.png">
 
 ---
 ## below is what 7 orbs look like
