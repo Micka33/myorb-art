@@ -1,31 +1,40 @@
-# myorb-art
+# create-svelte
 
-This project makes it easy to display one or several orbs in fullscreen.
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
-## What is an Orb?
+## Creating a project
 
-On 2022 February 22nd, in partnership with [Gala Music](https://twitter.com/gogalamusic), the artist [BT](https://twitter.com/BT) has revealed 3333 ORBS to the world.  
-Learn more on the [official website (https://www.theorbs.io/)](https://www.theorbs.io/)
+If you're seeing this, you've probably already done this step. Congrats!
 
-## Requirements
- - As lightweight as possible
- - No tracking whatsoever
- - Opensource
+```bash
+# create a new project in the current directory
+npm init svelte@next
 
-## TODO
- - [x] Implements an input that can accept several ORBS IDs (currently up to 10)
- - [x] Display several orbs so there is never an empty slot 
- - [ ] Propose several layouts
- - [ ] Display friendly errors (wrong id, etc)
- - [ ] Store orbs IDs in URL (easier to save a custom selection)
- - [ ] Close orbs when pressing escape key (2 solutions: [a: autoplay orbs+super overlay], [b: setInterval to refocus on input field after submit])
- - [x] Dynamically resize the orbs on browsers resize
+# create a new project in my-app
+npm init svelte@next my-app
+```
 
----
+> Note: the `@next` is temporary
 
-<img width="771" alt="Screen Shot 2022-02-28 at 18 24 14" src="https://user-images.githubusercontent.com/3918958/156029412-49bf08a7-c3cf-4981-b313-f6d90d9626de.png">
+## Developing
 
----
-## below is what 7 orbs look like
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
-<img width="1502" alt="Screen Shot 2022-02-26 at 23 33 11" src="https://user-images.githubusercontent.com/3918958/155861168-944e8da7-ddaf-4da4-8c7e-1d68f93e216e.png">
+```bash
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
+```
+
+## Building
+
+To create a production version of your app:
+
+```bash
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
