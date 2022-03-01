@@ -26,7 +26,6 @@
 
   if (browser) {
     function setItem(data) {
-      console.log(data);
       items = [...items, {
         image: data.image,
         collection_name: data.collection_name,
@@ -44,18 +43,16 @@
   }
 </script>
 
-<!-- <div> -->
-  <div class="flex flex-row justify-center -mt-6 ">
-    {#each items as item}
-      <div class="flex flex-col cursor-text rounded-lg border-solid border-2 mx-1 border-slate-800 bg-slate-300/70 dark:bg-slate-500/70">
-        <div class="h-28 w-28">
-          <img src="{item.image}" alt="An Orb" class="object-cover w-full h-full rounded-t-lg">
-        </div>
-        <div class="text-xs flex flex-col justify-center items-center py-1">
-          <div class="collection_name"><span>{item.collection_name}</span></div>
-          <div class="mt-1 text-blue-300 underline"><span><a href="{item.url}" target="_blank">{item.id}</a></span></div>
-        </div>
+<div class="flex flex-row justify-center -mt-6 ">
+  {#each items as item}
+    <div class="flex flex-col cursor-text rounded-lg border-solid border-2 mx-1 border-slate-800 bg-slate-300/70 dark:bg-slate-500/70">
+      <div class="h-28 w-28">
+        <img src="{item.image}" alt="An Orb" class="object-cover w-full h-full rounded-t-lg">
       </div>
-    {/each}
-  </div>
-<!-- </div> -->
+      <div class="text-xs flex flex-col justify-center items-center py-1">
+        <div class="collection_name"><span>{item.collection_name}</span></div>
+        <div class="mt-1 text-blue-300 underline"><span><a href="{item.url}" target="_blank">{item.id}</a></span></div>
+      </div>
+    </div>
+  {/each}
+</div>
