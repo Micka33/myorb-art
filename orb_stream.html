@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <script>
+          // request interceptor
+          const { fetch: originalFetch } = window;
+          const url = 'https://hvlwa7yfaifrsz6nem6ionppnkgpdj2nuioqk5nat2vocnuct4.arweave.net/PVdgfwUCCxlnzSM8hzXvaozxp0-2iHQV1oJ6q4TaCn4/';
+          window.fetch = async (...args) => {
+            let [resource, config ] = args;
+            if (resource == './config.json') resource = url + './config.json';
+            const response = await originalFetch(resource, config);
+            return response;
+          };
+        </script>
+        <meta charset="utf-8"/>
+        <link rel="apple-touch-icon-precomposed" sizes="57x57" href="https://hvlwa7yfaifrsz6nem6ionppnkgpdj2nuioqk5nat2vocnuct4.arweave.net/PVdgfwUCCxlnzSM8hzXvaozxp0-2iHQV1oJ6q4TaCn4/assets/apple-touch-icon-57x57.png"/>
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://hvlwa7yfaifrsz6nem6ionppnkgpdj2nuioqk5nat2vocnuct4.arweave.net/PVdgfwUCCxlnzSM8hzXvaozxp0-2iHQV1oJ6q4TaCn4/assets/apple-touch-icon-114x114.png"/>
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://hvlwa7yfaifrsz6nem6ionppnkgpdj2nuioqk5nat2vocnuct4.arweave.net/PVdgfwUCCxlnzSM8hzXvaozxp0-2iHQV1oJ6q4TaCn4/assets/apple-touch-icon-72x72.png"/>
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://hvlwa7yfaifrsz6nem6ionppnkgpdj2nuioqk5nat2vocnuct4.arweave.net/PVdgfwUCCxlnzSM8hzXvaozxp0-2iHQV1oJ6q4TaCn4/assets/apple-touch-icon-144x144.png"/>
+        <link rel="apple-touch-icon-precomposed" sizes="60x60" href="https://hvlwa7yfaifrsz6nem6ionppnkgpdj2nuioqk5nat2vocnuct4.arweave.net/PVdgfwUCCxlnzSM8hzXvaozxp0-2iHQV1oJ6q4TaCn4/assets/apple-touch-icon-60x60.png"/>
+        <link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://hvlwa7yfaifrsz6nem6ionppnkgpdj2nuioqk5nat2vocnuct4.arweave.net/PVdgfwUCCxlnzSM8hzXvaozxp0-2iHQV1oJ6q4TaCn4/assets/apple-touch-icon-120x120.png"/>
+        <link rel="apple-touch-icon-precomposed" sizes="76x76" href="https://hvlwa7yfaifrsz6nem6ionppnkgpdj2nuioqk5nat2vocnuct4.arweave.net/PVdgfwUCCxlnzSM8hzXvaozxp0-2iHQV1oJ6q4TaCn4/assets/apple-touch-icon-76x76.png"/>
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://hvlwa7yfaifrsz6nem6ionppnkgpdj2nuioqk5nat2vocnuct4.arweave.net/PVdgfwUCCxlnzSM8hzXvaozxp0-2iHQV1oJ6q4TaCn4/assets/apple-touch-icon-152x152.png"/>
+        <link rel="icon" type="image/png" href="https://hvlwa7yfaifrsz6nem6ionppnkgpdj2nuioqk5nat2vocnuct4.arweave.net/PVdgfwUCCxlnzSM8hzXvaozxp0-2iHQV1oJ6q4TaCn4/assets/favicon-196x196.png" sizes="196x196"/>
+        <link rel="icon" type="image/png" href="https://hvlwa7yfaifrsz6nem6ionppnkgpdj2nuioqk5nat2vocnuct4.arweave.net/PVdgfwUCCxlnzSM8hzXvaozxp0-2iHQV1oJ6q4TaCn4/assets/favicon-96x96.png" sizes="96x96"/>
+        <link rel="icon" type="image/png" href="https://hvlwa7yfaifrsz6nem6ionppnkgpdj2nuioqk5nat2vocnuct4.arweave.net/PVdgfwUCCxlnzSM8hzXvaozxp0-2iHQV1oJ6q4TaCn4/assets/favicon-32x32.png" sizes="32x32"/>
+        <link rel="icon" type="image/png" href="https://hvlwa7yfaifrsz6nem6ionppnkgpdj2nuioqk5nat2vocnuct4.arweave.net/PVdgfwUCCxlnzSM8hzXvaozxp0-2iHQV1oJ6q4TaCn4/assets/favicon-16x16.png" sizes="16x16"/>
+        <link rel="icon" type="image/png" href="https://hvlwa7yfaifrsz6nem6ionppnkgpdj2nuioqk5nat2vocnuct4.arweave.net/PVdgfwUCCxlnzSM8hzXvaozxp0-2iHQV1oJ6q4TaCn4/assets/favicon-128.png" sizes="128x128"/>
+        <meta name="application-name" content="BT - The Orbs"/>
+        <meta name="msapplication-TileColor" content="#FFFFFF"/>
+        <meta name="msapplication-TileImage" content="assets/mstile-144x144.png"/>
+        <meta name="msapplication-square70x70logo" content="assets/mstile-70x70.png"/>
+        <meta name="msapplication-square150x150logo" content="assets/mstile-150x150.png"/>
+        <meta name="msapplication-wide310x150logo" content="assets/mstile-310x150.png"/>
+        <meta name="msapplication-square310x310logo" content="assets/mstile-310x310.png"/>
+        <link rel="shortcut icon" href="https://hvlwa7yfaifrsz6nem6ionppnkgpdj2nuioqk5nat2vocnuct4.arweave.net/PVdgfwUCCxlnzSM8hzXvaozxp0-2iHQV1oJ6q4TaCn4/assets/favicon.ico">
+        <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"/>
+        <meta name="theme-color" content="#000000"/>
+        <meta name="description" content="BT - The Orbs"/>
+        <title>BT - The Orbs</title>
+        <link href="https://hvlwa7yfaifrsz6nem6ionppnkgpdj2nuioqk5nat2vocnuct4.arweave.net/PVdgfwUCCxlnzSM8hzXvaozxp0-2iHQV1oJ6q4TaCn4/static/css/main.2de83035.chunk.css" rel="stylesheet">
+    </head>
+    <body>
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div id="root"></div>
+        <script>
+            !function(e) {
+                function r(r) {
+                    for (var n, l, f = r[0], i = r[1], a = r[2], c = 0, s = []; c < f.length; c++)
+                        l = f[c],
+                        Object.prototype.hasOwnProperty.call(o, l) && o[l] && s.push(o[l][0]),
+                        o[l] = 0;
+                    for (n in i)
+                        Object.prototype.hasOwnProperty.call(i, n) && (e[n] = i[n]);
+                    for (p && p(r); s.length; )
+                        s.shift()();
+                    return u.push.apply(u, a || []),
+                    t()
+                }
+                function t() {
+                    for (var e, r = 0; r < u.length; r++) {
+                        for (var t = u[r], n = !0, f = 1; f < t.length; f++) {
+                            var i = t[f];
+                            0 !== o[i] && (n = !1)
+                        }
+                        n && (u.splice(r--, 1),
+                        e = l(l.s = t[0]))
+                    }
+                    return e
+                }
+                var n = {}
+                  , o = {
+                    1: 0
+                }
+                  , u = [];
+                function l(r) {
+                    if (n[r])
+                        return n[r].exports;
+                    var t = n[r] = {
+                        i: r,
+                        l: !1,
+                        exports: {}
+                    };
+                    return e[r].call(t.exports, t, t.exports, l),
+                    t.l = !0,
+                    t.exports
+                }
+                l.m = e,
+                l.c = n,
+                l.d = function(e, r, t) {
+                    l.o(e, r) || Object.defineProperty(e, r, {
+                        enumerable: !0,
+                        get: t
+                    })
+                }
+                ,
+                l.r = function(e) {
+                    "undefined" != typeof Symbol && Symbol.toStringTag && Object.defineProperty(e, Symbol.toStringTag, {
+                        value: "Module"
+                    }),
+                    Object.defineProperty(e, "__esModule", {
+                        value: !0
+                    })
+                }
+                ,
+                l.t = function(e, r) {
+                    if (1 & r && (e = l(e)),
+                    8 & r)
+                        return e;
+                    if (4 & r && "object" == typeof e && e && e.__esModule)
+                        return e;
+                    var t = Object.create(null);
+                    if (l.r(t),
+                    Object.defineProperty(t, "default", {
+                        enumerable: !0,
+                        value: e
+                    }),
+                    2 & r && "string" != typeof e)
+                        for (var n in e)
+                            l.d(t, n, function(r) {
+                                return e[r]
+                            }
+                            .bind(null, n));
+                    return t
+                }
+                ,
+                l.n = function(e) {
+                    var r = e && e.__esModule ? function() {
+                        return e.default
+                    }
+                    : function() {
+                        return e
+                    }
+                    ;
+                    return l.d(r, "a", r),
+                    r
+                }
+                ,
+                l.o = function(e, r) {
+                    return Object.prototype.hasOwnProperty.call(e, r)
+                }
+                ,
+                l.p = "./";
+                var f = this["webpackJsonpthe-orbs"] = this["webpackJsonpthe-orbs"] || []
+                  , i = f.push.bind(f);
+                f.push = r,
+                f = f.slice();
+                for (var a = 0; a < f.length; a++)
+                    r(f[a]);
+                var p = i;
+                t()
+            }([])
+        </script>
+        <script src="https://hvlwa7yfaifrsz6nem6ionppnkgpdj2nuioqk5nat2vocnuct4.arweave.net/PVdgfwUCCxlnzSM8hzXvaozxp0-2iHQV1oJ6q4TaCn4/static/js/2.055a8f6a.chunk.js"></script>
+        <script src="https://hvlwa7yfaifrsz6nem6ionppnkgpdj2nuioqk5nat2vocnuct4.arweave.net/PVdgfwUCCxlnzSM8hzXvaozxp0-2iHQV1oJ6q4TaCn4/static/js/main.21d319a7.chunk.js"></script>
+
+        <!-- Custom code to stream the orb -->
+        <script>
+          let peerConnection;
+          let interval_id = setInterval(() => {
+            let canvas = document.querySelector('#root > div > canvas');
+            if (canvas) {
+              start_streaming(canvas);
+              clearInterval(interval_id);
+            }
+          }, 500);
+
+          function start_streaming(canvas) {
+            const stream = canvas.captureStream(25);
+            console.log('stream');
+            console.log(stream);
+            peerConnection = create_peer_connection();
+            console.log('peerConnection');
+            console.log(peerConnection);
+            peerConnection.onicecandidate = e => console.log(e);
+            // peerConnection.addStream(stream);
+            stream.getTracks().forEach(track => peerConnection.addTrack(track, stream));
+            peerConnection.createOffer(onCreateOfferSuccess, onCreateSessionDescriptionError);
+            // const options = { mimeType: "video/webm; codecs=vp9" };
+            // mediaRecorder = new MediaRecorder(stream, options);
+            // mediaRecorder.ondataavailable = handleDataAvailable;
+            // mediaRecorder.start();
+          }
+
+          // function handleDataAvailable(event) {
+          //   console.log("data-available");
+          //   const data = event.data;
+          //   if (data.size > 0) {
+          //   } else {
+          //     // ...
+          //   }
+          // }
+
+          function create_peer_connection() {
+            return new RTCPeerConnection({
+              iceServers: [
+                { urls: "stun:openrelay.metered.ca:80" },
+                {
+                  urls: "turn:openrelay.metered.ca:80",
+                  username: "openrelayproject",
+                  credential: "openrelayproject"
+                }, {
+                  urls: "turn:openrelay.metered.ca:443",
+                  username: "openrelayproject",
+                  credential: "openrelayproject"
+                }, {
+                  urls: "turn:openrelay.metered.ca:443?transport=tcp",
+                  username: "openrelayproject",
+                  credential: "openrelayproject"
+                }
+              ]
+            });
+          }
+
+          function onCreateOfferSuccess(desc) {
+            console.log(`Offer from pc1\n${desc.sdp}`);
+            console.log({desc});
+            // console.log('pc1 setLocalDescription start');
+            // pc1.setLocalDescription(desc, () => onSetLocalSuccess(pc1), onSetSessionDescriptionError);
+            // TODO: SEND desc to peers
+          }
+          function onCreateSessionDescriptionError(error) {
+            console.log(`Failed to create session description: ${error.toString()}`);
+          }
+        </script>
+
+    </body>
+</html>

@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+    <head>
+      <style> #autoplay { display: none; } </style>
+    </head>
+    <body>
+        <noscript>You need to enable JavaScript to run this app.</noscript>
+        <div id="root">
+          <video playsinline autoplay></video>
+          <div id="autoplay">Due to autoplay policy the video seems not to be playing. Clicking the left teapot usually resolves this.</div>
+        </div>
+        <!-- Custom code to stream the orb -->
+        <style>
+          #root { width: 100%; height: 100%;}
+          video { width: 100%; height: 100%;}
+        </style>
+        <script>
+          let peerConnection;
+          const video = document.querySelector('#root > video');
+          const desc = {
+        "sdp": "v=0\r\no=- 6820550490485812386 2 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0\r\na=group:BUNDLE 0\r\na=extmap-allow-mixed\r\na=msid-semantic: WMS fa0f9a57-fb15-4815-8b6d-68234cb56a23\r\nm=video 9 UDP/TLS/RTP/SAVPF 96 97 98 99 100 101 102 121 127 120 125 107 108 109 124 119 123 117 35 36 114 115 116 62 118\r\nc=IN IP4 0.0.0.0\r\na=rtcp:9 IN IP4 0.0.0.0\r\na=ice-ufrag:ajgD\r\na=ice-pwd:yY6G+RWx+OZ/IGPPWgp1qmqD\r\na=ice-options:trickle\r\na=fingerprint:sha-256 FB:E9:58:32:CE:1C:CD:C8:8D:66:E0:E1:80:45:62:E4:FB:80:EC:95:74:3E:9D:B6:69:0A:1E:1B:7F:AE:EC:8E\r\na=setup:actpass\r\na=mid:0\r\na=extmap:1 urn:ietf:params:rtp-hdrext:toffset\r\na=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time\r\na=extmap:3 urn:3gpp:video-orientation\r\na=extmap:4 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01\r\na=extmap:5 http://www.webrtc.org/experiments/rtp-hdrext/playout-delay\r\na=extmap:6 http://www.webrtc.org/experiments/rtp-hdrext/video-content-type\r\na=extmap:7 http://www.webrtc.org/experiments/rtp-hdrext/video-timing\r\na=extmap:8 http://www.webrtc.org/experiments/rtp-hdrext/color-space\r\na=extmap:9 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=extmap:10 urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id\r\na=extmap:11 urn:ietf:params:rtp-hdrext:sdes:repaired-rtp-stream-id\r\na=sendrecv\r\na=msid:fa0f9a57-fb15-4815-8b6d-68234cb56a23 8decdd83-d682-4251-855a-e1a17cf9e1d7\r\na=rtcp-mux\r\na=rtcp-rsize\r\na=rtpmap:96 VP8/90000\r\na=rtcp-fb:96 goog-remb\r\na=rtcp-fb:96 transport-cc\r\na=rtcp-fb:96 ccm fir\r\na=rtcp-fb:96 nack\r\na=rtcp-fb:96 nack pli\r\na=rtpmap:97 rtx/90000\r\na=fmtp:97 apt=96\r\na=rtpmap:98 VP9/90000\r\na=rtcp-fb:98 goog-remb\r\na=rtcp-fb:98 transport-cc\r\na=rtcp-fb:98 ccm fir\r\na=rtcp-fb:98 nack\r\na=rtcp-fb:98 nack pli\r\na=fmtp:98 profile-id=0\r\na=rtpmap:99 rtx/90000\r\na=fmtp:99 apt=98\r\na=rtpmap:100 VP9/90000\r\na=rtcp-fb:100 goog-remb\r\na=rtcp-fb:100 transport-cc\r\na=rtcp-fb:100 ccm fir\r\na=rtcp-fb:100 nack\r\na=rtcp-fb:100 nack pli\r\na=fmtp:100 profile-id=2\r\na=rtpmap:101 rtx/90000\r\na=fmtp:101 apt=100\r\na=rtpmap:102 H264/90000\r\na=rtcp-fb:102 goog-remb\r\na=rtcp-fb:102 transport-cc\r\na=rtcp-fb:102 ccm fir\r\na=rtcp-fb:102 nack\r\na=rtcp-fb:102 nack pli\r\na=fmtp:102 level-asymmetry-allowed=1;packetization-mode=1;profile-level-id=42001f\r\na=rtpmap:121 rtx/90000\r\na=fmtp:121 apt=102\r\na=rtpmap:127 H264/90000\r\na=rtcp-fb:127 goog-remb\r\na=rtcp-fb:127 transport-cc\r\na=rtcp-fb:127 ccm fir\r\na=rtcp-fb:127 nack\r\na=rtcp-fb:127 nack pli\r\na=fmtp:127 level-asymmetry-allowed=1;packetization-mode=0;profile-level-id=42001f\r\na=rtpmap:120 rtx/90000\r\na=fmtp:120 apt=127\r\na=rtpmap:125 H264/90000\r\na=rtcp-fb:125 goog-remb\r\na=rtcp-fb:125 transport-cc\r\na=rtcp-fb:125 ccm fir\r\na=rtcp-fb:125 nack\r\na=rtcp-fb:125 nack pli\r\na=fmtp:125 level-asymmetry-allowed=1;packetization-mode=1;profile-level-id=42e01f\r\na=rtpmap:107 rtx/90000\r\na=fmtp:107 apt=125\r\na=rtpmap:108 H264/90000\r\na=rtcp-fb:108 goog-remb\r\na=rtcp-fb:108 transport-cc\r\na=rtcp-fb:108 ccm fir\r\na=rtcp-fb:108 nack\r\na=rtcp-fb:108 nack pli\r\na=fmtp:108 level-asymmetry-allowed=1;packetization-mode=0;profile-level-id=42e01f\r\na=rtpmap:109 rtx/90000\r\na=fmtp:109 apt=108\r\na=rtpmap:124 H264/90000\r\na=rtcp-fb:124 goog-remb\r\na=rtcp-fb:124 transport-cc\r\na=rtcp-fb:124 ccm fir\r\na=rtcp-fb:124 nack\r\na=rtcp-fb:124 nack pli\r\na=fmtp:124 level-asymmetry-allowed=1;packetization-mode=1;profile-level-id=4d001f\r\na=rtpmap:119 rtx/90000\r\na=fmtp:119 apt=124\r\na=rtpmap:123 H264/90000\r\na=rtcp-fb:123 goog-remb\r\na=rtcp-fb:123 transport-cc\r\na=rtcp-fb:123 ccm fir\r\na=rtcp-fb:123 nack\r\na=rtcp-fb:123 nack pli\r\na=fmtp:123 level-asymmetry-allowed=1;packetization-mode=0;profile-level-id=4d001f\r\na=rtpmap:117 rtx/90000\r\na=fmtp:117 apt=123\r\na=rtpmap:35 AV1/90000\r\na=rtcp-fb:35 goog-remb\r\na=rtcp-fb:35 transport-cc\r\na=rtcp-fb:35 ccm fir\r\na=rtcp-fb:35 nack\r\na=rtcp-fb:35 nack pli\r\na=rtpmap:36 rtx/90000\r\na=fmtp:36 apt=35\r\na=rtpmap:114 H264/90000\r\na=rtcp-fb:114 goog-remb\r\na=rtcp-fb:114 transport-cc\r\na=rtcp-fb:114 ccm fir\r\na=rtcp-fb:114 nack\r\na=rtcp-fb:114 nack pli\r\na=fmtp:114 level-asymmetry-allowed=1;packetization-mode=1;profile-level-id=640032\r\na=rtpmap:115 rtx/90000\r\na=fmtp:115 apt=114\r\na=rtpmap:116 red/90000\r\na=rtpmap:62 rtx/90000\r\na=fmtp:62 apt=116\r\na=rtpmap:118 ulpfec/90000\r\na=ssrc-group:FID 573112624 2352671106\r\na=ssrc:573112624 cname:CDxo/wyrZZCNthPd\r\na=ssrc:573112624 msid:fa0f9a57-fb15-4815-8b6d-68234cb56a23 8decdd83-d682-4251-855a-e1a17cf9e1d7\r\na=ssrc:573112624 mslabel:fa0f9a57-fb15-4815-8b6d-68234cb56a23\r\na=ssrc:573112624 label:8decdd83-d682-4251-855a-e1a17cf9e1d7\r\na=ssrc:2352671106 cname:CDxo/wyrZZCNthPd\r\na=ssrc:2352671106 msid:fa0f9a57-fb15-4815-8b6d-68234cb56a23 8decdd83-d682-4251-855a-e1a17cf9e1d7\r\na=ssrc:2352671106 mslabel:fa0f9a57-fb15-4815-8b6d-68234cb56a23\r\na=ssrc:2352671106 label:8decdd83-d682-4251-855a-e1a17cf9e1d7\r\n",
+        "type": "offer"
+    };
+          start_streaming();
+
+          function start_streaming() {
+            peerConnection = create_peer_connection();
+            peerConnection.onicecandidate = e => console.log(e);
+            peerConnection.ontrack = gotRemoteStream;
+
+            console.log('setRemoteDescription start');
+            peerConnection.setRemoteDescription(desc, () => console.log('success'), () => console.error('failed'));
+            console.log('createAnswer start');
+            // Since the 'remote' side has no media stream we need
+            // to pass in the right constraints in order for it to
+            // accept the incoming offer of audio and video.
+            peerConnection.createAnswer(onCreateAnswerSuccess, () => console.error('create answer failed'));
+          }
+
+          function create_peer_connection() {
+            return new RTCPeerConnection({
+              iceServers: [
+                {
+                  urls: "turn:openrelay.metered.ca:80",
+                  username: "openrelayproject",
+                  credential: "openrelayproject"
+                }, {
+                  urls: "turn:openrelay.metered.ca:443",
+                  username: "openrelayproject",
+                  credential: "openrelayproject"
+                }, {
+                  urls: "turn:openrelay.metered.ca:443?transport=tcp",
+                  username: "openrelayproject",
+                  credential: "openrelayproject"
+                }
+              ]
+            });
+          }
+
+          function gotRemoteStream(e) {
+            if (video.srcObject !== e.streams[0]) {
+              video.srcObject = e.streams[0];
+              console.log('peerConnection received remote stream');
+              if (video.paused) {
+                document.getElementById('autoplay').style.display = 'block';
+              }
+            }
+          }
+
+          function onIceCandidate(pc, event) {
+            getOtherPc(pc).addIceCandidate(event.candidate)
+                .then(
+                    () => onAddIceCandidateSuccess(pc),
+                    err => onAddIceCandidateError(pc, err)
+                );
+            console.log(`${getName(pc)} ICE candidate: ${event.candidate ? event.candidate.candidate : '(null)'}`);
+          }
+
+          function onCreateAnswerSuccess(desc) {
+            console.log(`Answer from orb:\n${desc.sdp}`);
+            console.log('setLocalDescription start');
+            peerConnection.setLocalDescription(desc, () => console.log('setLocalDescription success'), () => console.error('setLocalDescription failed'));
+            console.log('orb setRemoteDescription:');
+            console.log({desc});
+            // ORB peerConnection.setRemoteDescription(desc, () => console.log('setRemoteDescription success'), () => console.error('setRemoteDescription failed'));
+          }
+        </script>
+
+    </body>
+</html>
