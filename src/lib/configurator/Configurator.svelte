@@ -44,7 +44,7 @@
 <div class="flex flex-col items-center justify-center mt-8">
   <div class="max-w-2xl w-full">
     <OrbIdsInput on:inputUpdated={inputUpdated} value={default_values}/>
-    {#if ids.length > 0}
+    {#if ids && ids.length > 0}
       <div class="mb-2 mt-2">
         <ReverseRadio bind:reverse={reverse} />
       </div>
