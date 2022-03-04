@@ -5,20 +5,28 @@
 	import Promotion from '$lib/promotion/Promotion.svelte';
 	import SetupButton from '$lib/setup_button/SetupButton.svelte';
 	import Configurator from '$lib/configurator/Configurator.svelte';
+  import { onMount } from 'svelte';
 
 	// let setup_hidden = false;
 	let do_not_query_opensea = false;
 
-	let ids = $page.url.searchParams.get('ids')?.split(',') || [];
-	let nbColumns = $page.url.searchParams.get('col');
-	let orientation = $page.url.searchParams.get('o') || 'horizontal';
-	let reverse = ($page.url.searchParams.get('r') === 'true') ? true : false;
+	let ids = [];
+	let nbColumns;
+	let orientation = 'horizontal';
+	let reverse = false;
 
 	function updateParam(key, value) {
 		const params = $page.url.searchParams;
 		(params.has(key) ? params.set(key, value) : params.append(key, value));
 		window.history.replaceState({}, '', `${$page.url.pathname}?${params}`);
 	}
+
+	onMount(() => {
+		ids = $page.url.searchParams.get('ids')?.split(',') || [];
+		nbColumns = $page.url.searchParams.get('col');
+		orientation = $page.url.searchParams.get('o') || 'horizontal';
+		reverse = ($page.url.searchParams.get('r') === 'true') ? true : false;
+	});
 
 	$:{
 		if (browser) {

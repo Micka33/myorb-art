@@ -4,19 +4,24 @@
   import { onMount } from 'svelte';
 
   const asset_contract_address = '0x52e66ca968010d064938a8099a172cbaaf08c125';
-  let ids = $page.url.searchParams.get('ids').split(',');
-  let nbColumns = $page.url.searchParams.get('col');
-  let orientation = $page.url.searchParams.get('o');
-  let reverse = ($page.url.searchParams.get('r') === 'true') ? true : false;
+  let ids;
+  let nbColumns;
+  let orientation;
+  let reverse;
   let htmlStringArray = [];
 
   function getAsset(asset_contract_address, token_id) {
-      const options = {method: 'GET'};
-      const url = 'https://api.opensea.io/api/v1/asset/'+asset_contract_address+'/'+ token_id +'/?include_orders=false'
-      return fetch(url, options).then(response => response.json())
-    }
+    const options = {method: 'GET'};
+    const url = 'https://api.opensea.io/api/v1/asset/'+asset_contract_address+'/'+ token_id +'/?include_orders=false'
+    return fetch(url, options).then(response => response.json())
+  }
 
   onMount(() => {
+    ids = $page.url.searchParams.get('ids').split(',');
+    nbColumns = $page.url.searchParams.get('col');
+    orientation = $page.url.searchParams.get('o');
+    reverse = ($page.url.searchParams.get('r') === 'true') ? true : false;
+
     ids.reduce( (p, id) => 
         p.then(() => {
           return getAsset(asset_contract_address, id)
