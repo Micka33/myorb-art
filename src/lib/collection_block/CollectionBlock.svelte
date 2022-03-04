@@ -1,7 +1,9 @@
 <script lang="js">
   import eth_logo from './eth.svg';
   import { browser } from '$app/env';
+  import { data } from './mocked_api_response.js';
 
+  export let do_not_query_opensea = false;
   const collection_slug = 'theorbsbybt';
   let image_source;
   let name;
@@ -34,9 +36,13 @@
   }
 
   function getCollection(slug) {
-    const options = {method: 'GET'};
-    const url = 'https://api.opensea.io/api/v1/collection/' + slug;
-    return fetch(url, options).then(response => response.json())
+    if (do_not_query_opensea) {
+      return Promise.resolve(data);
+    } else {
+      const options = {method: 'GET'};
+      const url = 'https://api.opensea.io/api/v1/collection/' + slug;
+      return fetch(url, options).then(response => response.json())
+    }
   }
 
   if (browser) {
@@ -68,20 +74,20 @@
 </script>
 
 <div class="mb-8 text-slate-200">
-  <div id="banner" class="border-b-2 border-b-slate-800 bg-cover h-80 bg-red-50 -mt-12"></div>
-  <div id="info" class="flex flex-col items-center -mt-64">
-    <div id="image">
+  <div id="banner" class="border-b-2 border-b-slate-800 bg-cover h-48 bg-red-50 -mt-12"></div>
+  <div id="info" class="flex flex-col items-center -mt-36">
+    <!-- <div id="image">
       <div id="image_border" class="rounded-full border-slate-800 border-2 border-solid h-32 w-32">
         {#if image_source}
           <img src={image_source} alt="Collection" class="object-cover w-full h-full">
         {/if}
       </div>
-    </div>
+    </div> -->
     <div id="title" class="mt-2">
       <h1 class="text-4xl">{name}</h1>
     </div>
     {#if statistics}
-      <div id="statistics" class="flex flex-row items-center mt-4 text-center w-full justify-evenly bg-slate-800/60">
+      <div id="statistics" class="flex flex-row items-center mt-4 text-center w-full justify-center bg-slate-800/60">
         {#each statistics as item}
           <div class="mx-2">
             <div class="flex flex-row text-xl text-center items-center">

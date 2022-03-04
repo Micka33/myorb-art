@@ -1,15 +1,11 @@
 <script>
-	import Header from '$lib/header/Header.svelte';
-	import CollectionBlock from '$lib/collection_block/CollectionBlock.svelte';
-	import '../app.css';
+	import { page } from '$app/stores';
+	import Standard from './layouts/Standard.svelte';
+	import Empty from './layouts/Empty.svelte';
 </script>
 
-<Header />
-
-<main>
-	<slot />
-</main>
-
-<footer>
-	<p>visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to learn SvelteKit</p>
-</footer>
+{#if $page.url.pathname != '/display'}
+	<Standard><slot /></Standard>
+{:else}
+	<Empty><slot /></Empty>
+{/if}
