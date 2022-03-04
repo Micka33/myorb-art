@@ -28,7 +28,6 @@
 
   $: {
     grid_composition = createComposition(nbColumns, htmlStringArray.length, [...htmlStringArray], reverse)
-    console.log({ htmlStringArray })
   }
 </script>
 

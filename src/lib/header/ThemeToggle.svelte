@@ -34,7 +34,6 @@
   });
 
   function switchTheme() {
-    console.log(themeLoop);
     let currentIndex = themeLoop.indexOf(themeValue);
     let index = currentIndex === themeLoop.length - 1 ? 0 : currentIndex + 1;
     themeValue =themeLoop[index];

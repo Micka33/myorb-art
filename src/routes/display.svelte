@@ -19,7 +19,6 @@
   onMount(() => {
     ids.reduce( (p, id) => 
         p.then(() => {
-          console.log({id});
           return getAsset(asset_contract_address, id)
             .then(response => response?.animation_original_url)
             .then(url => {
