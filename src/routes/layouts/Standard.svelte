@@ -26,9 +26,9 @@
 						</svg>
 					</a>			
 				</li>
-				<li>
+				<!-- <li>
 						<a href="#" class="mx-4 hover:underline">Contact</a>
-				</li>
+				</li> -->
 		</ul>
 	</footer>
 </div>

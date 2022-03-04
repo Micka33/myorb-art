@@ -7,7 +7,7 @@
 	import Configurator from '$lib/configurator/Configurator.svelte';
 
 	// let setup_hidden = false;
-	let do_not_query_opensea = true;
+	let do_not_query_opensea = false;
 
 	let ids = $page.url.searchParams.get('ids')?.split(',') || [];
 	let nbColumns = $page.url.searchParams.get('col');
