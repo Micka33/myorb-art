@@ -84,18 +84,18 @@
       </div>
     </div> -->
     <div id="title" class="mt-2">
-      <h1 class="text-4xl">{name}</h1>
+      <h1 class="text-2xl xs:text-4xl"> {#if name}{name}{/if}</h1>
     </div>
     {#if statistics}
       <div id="statistics" class="flex flex-row items-center mt-4 text-center w-full justify-center bg-slate-800/60">
         {#each statistics as item}
-          <div class="mx-2">
+          <div class="mx-1 xs:mx-2">
             <div class="flex flex-row text-xl text-center items-center">
               <div class="w-full">
                 {#if item.type === 'eth'}
                   <img class="h-5 w-5 inline-block" src={eth_logo} alt="SvelteKit" />
                 {/if}
-                <span>{item.stat}</span>
+                <span class="text-sm xs:text-base">{item.stat}</span>
               </div>
             </div>
             <div class="text-xs">{item.name}</div>

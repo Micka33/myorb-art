@@ -10,11 +10,12 @@
     return value || Math.floor(n / 2);
   }
 
-  export let ids;
+  export let ids = [];
   export let nbColumns = nbColumnsSuggestor(ids.length);
-  export let orientation = 'horizontal';
-  export let reverse = false;
+  export let orientation;
+  export let reverse;
   let final_url;
+  let default_values = ids.join(', ')
 
   function inputUpdated(event) {
     const values = event?.detail?.ids;
@@ -42,7 +43,7 @@
 
 <div class="flex flex-col items-center justify-center mt-8">
   <div class="max-w-2xl w-full">
-    <OrbIdsInput on:inputUpdated={inputUpdated}/>
+    <OrbIdsInput on:inputUpdated={inputUpdated} value={default_values}/>
     {#if ids.length > 0}
       <div class="mb-2 mt-2">
         <ReverseRadio bind:reverse={reverse} />

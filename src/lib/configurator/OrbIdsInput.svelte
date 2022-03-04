@@ -1,7 +1,7 @@
 <script lang="js">
-import { Result } from 'postcss';
-
 	import { createEventDispatcher } from 'svelte';
+
+  export let value;
 
 	const dispatch = createEventDispatcher();
   let errors = [];
@@ -42,7 +42,7 @@ import { Result } from 'postcss';
 
 <div>
   <label for="orbs_ids" class="block mb-2 text-sm font-medium">Your Orb(s) ID(s)</label>
-  <input on:input={onInput} type="text" id="orbs_ids" class="bg-slate-50 border border-slate-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1, 2, 3, 4">
+  <input on:input={onInput} value={value} type="text" id="orbs_ids" class="bg-slate-50 border border-slate-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1, 2, 3, 4">
   <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">
     Separate each Orb's ID with a comma (,).
   </p>

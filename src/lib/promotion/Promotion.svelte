@@ -158,7 +158,7 @@
   {/each}
   {#each items as item}
     <div class="flex flex-col rounded-lg border-solid border-2 mx-1 border-slate-800 bg-slate-300/70 dark:bg-slate-500/70">
-      <div class="h-28 w-28 cursor-pointer">
+      <div class="h-20 w-20 xs:h-28 xs:w-28 cursor-pointer">
         <img id={item.id} src="{item.image}" alt="An Orb" class="object-cover w-full h-full rounded-t-lg">
       </div>
       <div class="text-s flex flex-col justify-center items-center py-1">

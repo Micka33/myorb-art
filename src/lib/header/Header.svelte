@@ -15,24 +15,28 @@
 		</a>
 	</div> -->
 
-	<nav class="flex justify-center">
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path class="fill-slate-300/70 dark:fill-slate-500/70" d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
-		</svg>
-		<ul class="bg-slate-300/70 dark:bg-slate-500/70">
-			<li class="active:before:border-t-slate-900 dark:active:before:border-t-slate-200 {$page.url.pathname === '/about' ? 'active': ''}">
+	<nav class="flex flex-row justify-center z-10 text-xs xs:text-base">
+		<div class="hidden xs:block">
+			<svg viewBox="0 0 2 3" aria-hidden="true">
+				<path class="fill-slate-300/70 dark:fill-slate-500/70" d="M0,0 L1,2 C1.5,3 1.5,3 2,3 L2,0 Z" />
+			</svg>
+		</div>
+		<ul class="bg-slate-300/70 dark:bg-slate-500/70 h-10 xs:h-12">
+			<li class="active:before:border-t-slate-900 dark:active:before:border-t-slate-200">
 				<a class="hover:text-slate-900 dark:hover:text-slate-200" href="https://www.theorbs.io/" target="_blank">The Orbs.io</a>
 			</li>
-			<!-- <li class="active:before:border-t-slate-900 dark:active:before:border-t-slate-200 {$page.url.pathname === '/' ? 'active': ''}">
-        <a class="hover:text-slate-900 dark:hover:text-slate-200" sveltekit:prefetch href="/">Home</a>
-      </li> -->
-			<li class="active:before:border-t-slate-900 dark:active:before:border-t-slate-200 {$page.url.pathname === '/about' ? 'active': ''}">
+			<li class="active:before:border-t-slate-900 dark:active:before:border-t-slate-200 active">
+        <a href="https://twitter.com/ukraine/status/1497594592438497282" target="_blank"><img src="/love-ukraine.png" class="w-10 h-9 mt-3" alt="Heart Shaped Ukrainian Flag 'Stop the war.'"/></a>
+      </li>
+			<li class="active:before:border-t-slate-900 dark:active:before:border-t-slate-200">
 				<a class="hover:text-slate-900 dark:hover:text-slate-200" href="https://opensea.io/collection/theorbsbybt" target="_blank">Opensea.io</a>
 			</li>
 		</ul>
-		<svg viewBox="0 0 2 3" aria-hidden="true">
-			<path class="fill-slate-300/70 dark:fill-slate-500/70" d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
-		</svg>
+		<div class="hidden xs:block">
+			<svg viewBox="0 0 2 3" aria-hidden="true">
+				<path class="fill-slate-300/70 dark:fill-slate-500/70" d="M0,0 L0,3 C0.5,3 0.5,3 1,2 L2,0 Z" />
+			</svg>
+		</div>
 	</nav>
 
 	<!-- <div class="w-12 h-12">
@@ -51,7 +55,6 @@
 		position: relative;
 		padding: 0;
 		margin: 0;
-		height: 3em;
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -83,7 +86,6 @@
 		padding: 0 1em;
 		color: var(--heading-color);
 		font-weight: 700;
-		font-size: 0.8rem;
 		text-transform: uppercase;
 		letter-spacing: 0.1em;
 		text-decoration: none;
