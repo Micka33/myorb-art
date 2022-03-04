@@ -21,12 +21,12 @@
 		window.history.replaceState({}, '', `${$page.url.pathname}?${params}`);
 	}
 
-	onMount(() => {
+	if (browser) {
 		ids = $page.url.searchParams.get('ids')?.split(',')?.filter(e => e != '') || [];
 		nbColumns = $page.url.searchParams.get('col');
 		orientation = $page.url.searchParams.get('o') || 'horizontal';
 		reverse = ($page.url.searchParams.get('r') === 'true') ? true : false;
-	});
+	}
 
 	$:{
 		if (browser) {
